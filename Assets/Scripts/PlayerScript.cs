@@ -72,24 +72,24 @@ public class PlayerScript : MonoBehaviour
 
         Vector3Int getDir(TileCheck check)
         {
-            switch (check)
+            return check switch
             {
-                case TileCheck.Left:
-                    return Vector3Int.left;
-                case TileCheck.Right:
-                    return Vector3Int.right;
-                case TileCheck.Up:
-                    return Vector3Int.up;
-                case TileCheck.Down:
-                    return Vector3Int.down;
-                default:
-                    return Vector3Int.down;
-            }
+                TileCheck.Left => Vector3Int.left,
+                TileCheck.Right => Vector3Int.right,
+                TileCheck.Up => Vector3Int.up,
+                TileCheck.Down => Vector3Int.down,
+                _ => Vector3Int.down
+            };
         }
 
 
         yield return new WaitForSeconds(0.25f);
         GameManager.Instance.PassTurn();
+    }
+
+    public void SetNewDirection(TileCheck dir)
+    {
+        nextTile = dir;
     }
 }
 

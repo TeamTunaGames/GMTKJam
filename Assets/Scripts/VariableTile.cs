@@ -27,7 +27,13 @@ public class VariableTile : Tile
     {
         base.GetTileData(position, tilemap, ref tileData);
         GetNeighbors(position, tilemap);
-        tileData.sprite = sprites[0];
+
+        int x = Mathf.Abs(position.x);
+        int y = Mathf.Abs(position.y);
+
+        int index = (x + y) % sprites.Length;
+
+        tileData.sprite = sprites[index];
     }
 
     public bool HasAdjacentNeighbor(TileCheck check)

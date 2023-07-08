@@ -25,7 +25,7 @@ public class DeathTile : VariableTile
     {
         if (playerScript.Color == playerColor)
         {
-            Destroy(playerScript.gameObject);
+            playerScript.gameObject.SetActive(false);
         }
     }
 }

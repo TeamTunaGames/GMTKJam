@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df8e8d68cc62d8e418771a5bfcc0121f, type: 3}
-  m_Name: FreeTile
+  m_Script: {fileID: 11500000, guid: 847f1240b87753848b6653ad3944fe85, type: 3}
+  m_Name: Down-Up
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -35,7 +35,5 @@ MonoBehaviour:
   m_Flags: 1
   m_ColliderType: 1
   sprites:
-  - {fileID: 129915193, guid: 2504d03086c917c4da00d970327360eb, type: 3}
-  - {fileID: -983927620, guid: 2504d03086c917c4da00d970327360eb, type: 3}
-  - {fileID: 1094198146, guid: 2504d03086c917c4da00d970327360eb, type: 3}
-  - {fileID: 1604554875, guid: 2504d03086c917c4da00d970327360eb, type: 3}
+  - {fileID: 482588727, guid: 2504d03086c917c4da00d970327360eb, type: 3}
+  newDirection: 0
