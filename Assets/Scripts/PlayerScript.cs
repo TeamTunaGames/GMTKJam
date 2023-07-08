@@ -24,7 +24,6 @@ public class PlayerScript : MonoBehaviour
             GameManager.Instance.Map.RefreshTile(pos);
 
             VariableTile tile = GameManager.Instance.Map.GetTile<VariableTile>(pos);
-            Debug.Log(tile);
 
             if (tile.HasAdjacentNeighbor(nextTile))
             {

@@ -9,7 +9,6 @@ using UnityEditor;
 
 public class VariableTile : Tile
 {
-    public TileBase[] tilesToCheck;
     public Sprite[] sprites;
 
     private Dictionary<TileCheck, TileBase> tileNeighbors = new();

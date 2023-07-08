@@ -97,7 +97,8 @@ public class GameManager : Singleton<GameManager>
     public void PassTurn()
     {
         PlayerScript currentPlayer = players[playerTurn];
-        StartCoroutine(currentPlayer.timer(diceValues[gameTurn]));
+        if(gameTurn < diceValues.Count)
+            StartCoroutine(currentPlayer.timer(diceValues[gameTurn]));
 
         gameTurn++;
 
@@ -105,7 +106,7 @@ public class GameManager : Singleton<GameManager>
         {
             playerTurn++;
 
-            if (playerTurn > players.Count-1)
+            if (playerTurn >= players.Count)
             {
                 playerTurn = 0;
             }
