@@ -16,8 +16,6 @@ public class VariableTile : Tile
 
     public override bool StartUp(Vector3Int position, ITilemap tilemap, GameObject go)
     {
-        
-        
         return true;
     }
 
