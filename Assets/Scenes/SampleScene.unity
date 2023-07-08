@@ -220,7 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d658f872c6d887242817df2aa7f9037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnTile: {fileID: 0}
 --- !u!1 &146736157
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,10 +249,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fd6f36e79de124484696501f73af38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiles: []
+  playerPrefab: {fileID: 0}
   players: []
-  dices: []
-  diceValues: 010000000200000003000000040000000500000006000000010000000200000003000000
+  red: {r: 1, g: 0, b: 0, a: 1}
+  blue: {r: 0, g: 0, b: 1, a: 1}
+  green: {r: 0, g: 1, b: 0, a: 1}
+  pink: {r: 1, g: 0, b: 0.7411765, a: 1}
 --- !u!4 &146736159
 Transform:
   m_ObjectHideFlags: 0
@@ -314,7 +315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdbd400fc9fc30b419138dfc00521fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardPosition: 0
+  playerName: 
+  color: 0
 --- !u!212 &168324404
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -464,7 +466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d658f872c6d887242817df2aa7f9037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnTile: {fileID: 0}
 --- !u!1 &281421207
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +511,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdbd400fc9fc30b419138dfc00521fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardPosition: 0
+  playerName: 
+  color: 0
 --- !u!212 &281421210
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -608,7 +610,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdbd400fc9fc30b419138dfc00521fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardPosition: 0
+  playerName: 
+  color: 0
 --- !u!212 &331948216
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -879,7 +882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6935911cf8cb76c4e890a577f1284926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceValue: 0
 --- !u!1 &585741973
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d658f872c6d887242817df2aa7f9037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnTile: {fileID: 0}
 --- !u!1 &624288193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,7 +1068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6935911cf8cb76c4e890a577f1284926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceValue: 0
 --- !u!1 &816713083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6935911cf8cb76c4e890a577f1284926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceValue: 0
 --- !u!1 &823620117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,7 +1254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d658f872c6d887242817df2aa7f9037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnTile: {fileID: 0}
 --- !u!1 &841622414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,7 +1351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d658f872c6d887242817df2aa7f9037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnTile: {fileID: 0}
 --- !u!1 &924653090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,7 +1440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6935911cf8cb76c4e890a577f1284926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceValue: 0
 --- !u!1 &930084083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,7 +1537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d658f872c6d887242817df2aa7f9037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnTile: {fileID: 0}
 --- !u!1 &932197415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,7 +1634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d658f872c6d887242817df2aa7f9037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnTile: {fileID: 0}
 --- !u!1 &949453656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,13 +1748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7628b7357008b46b3f10749a0268c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceSprites:
-  - {fileID: 21300000, guid: 4e1e9a85c80bb74488fb12dd90bcf7ca, type: 3}
-  - {fileID: 21300000, guid: 0a65a8c7e7de67a41a89560dfd7b06de, type: 3}
-  - {fileID: 21300000, guid: 44c0152b95256a347aa71a50c86ab1bb, type: 3}
-  - {fileID: 21300000, guid: 7cbe9bd2062312c40b76683a688fbc5d, type: 3}
-  - {fileID: 21300000, guid: 832477bcef4efc44ebc910434ea416bb, type: 3}
-  - {fileID: 21300000, guid: 5aa28e101fe07ef43b6ac4299afaf08a, type: 3}
 --- !u!1 &1030769077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,7 +1845,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d658f872c6d887242817df2aa7f9037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnTile: {fileID: 0}
 --- !u!1 &1073932538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,7 +1934,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6935911cf8cb76c4e890a577f1284926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceValue: 0
 --- !u!1 &1081374890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,7 +2064,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d658f872c6d887242817df2aa7f9037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnTile: {fileID: 0}
 --- !u!1 &1267321145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2177,7 +2161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d658f872c6d887242817df2aa7f9037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnTile: {fileID: 0}
 --- !u!1 &1369221415
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,7 +2326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d658f872c6d887242817df2aa7f9037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnTile: {fileID: 0}
 --- !u!1 &1484786420
 GameObject:
   m_ObjectHideFlags: 0
@@ -2433,7 +2415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6935911cf8cb76c4e890a577f1284926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceValue: 0
 --- !u!1 &1587881916
 GameObject:
   m_ObjectHideFlags: 0
@@ -2531,7 +2512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d658f872c6d887242817df2aa7f9037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnTile: {fileID: 0}
 --- !u!1 &1626686330
 GameObject:
   m_ObjectHideFlags: 0
@@ -2629,7 +2609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d658f872c6d887242817df2aa7f9037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnTile: {fileID: 0}
 --- !u!1 &1729150558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2774,7 +2753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d658f872c6d887242817df2aa7f9037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnTile: {fileID: 0}
 --- !u!1 &1755412016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2864,7 +2842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6935911cf8cb76c4e890a577f1284926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceValue: 0
 --- !u!1 &1978727044
 GameObject:
   m_ObjectHideFlags: 0
@@ -2962,7 +2939,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d658f872c6d887242817df2aa7f9037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnTile: {fileID: 0}
 --- !u!1 &2006456447
 GameObject:
   m_ObjectHideFlags: 0
@@ -3052,7 +3028,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6935911cf8cb76c4e890a577f1284926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceValue: 0
 --- !u!1 &2099889650
 GameObject:
   m_ObjectHideFlags: 0
@@ -3142,7 +3117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6935911cf8cb76c4e890a577f1284926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceValue: 0
 --- !u!1 &2138946037
 GameObject:
   m_ObjectHideFlags: 0
@@ -3240,7 +3214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d658f872c6d887242817df2aa7f9037b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnTile: {fileID: 0}
 --- !u!1 &2142297949
 GameObject:
   m_ObjectHideFlags: 0
@@ -3286,7 +3259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdbd400fc9fc30b419138dfc00521fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardPosition: 0
+  playerName: 
+  color: 0
 --- !u!212 &2142297952
 SpriteRenderer:
   m_ObjectHideFlags: 0

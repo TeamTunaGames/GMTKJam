@@ -1,36 +1,92 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerScript : MonoBehaviour
 {
-    public int boardPosition;
-    private GameManager gameManager;
+    [SerializeField] private string playerName;
+    [SerializeField] private PlayerColor color;
 
-    void Start()
+    [SerializeField] private TileCheck nextTile = TileCheck.Right;
+
+    private void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        StartCoroutine(timer());
     }
 
-    public IEnumerator AdvanceTiles(int number)
+    private IEnumerator timer()
     {
-        //Move by one tile
-        number--;
-
-        TileScript currentTile = gameManager.tiles[boardPosition - number];
-        transform.position = currentTile.gameObject.transform.position;
-
-        //Move upwards if standing on another player
-        if (currentTile.playerOnTile != null && currentTile.playerOnTile != GetComponent<PlayerScript>())
+        while (true)
         {
-            transform.position += new Vector3(0, 1);
+            yield return new WaitForSeconds(1);
+            Vector3Int pos = new((int)transform.position.x, (int)transform.position.y);
+            GameManager.Instance.Map.RefreshTile(pos);
+
+            VariableTile tile = GameManager.Instance.Map.GetTile<VariableTile>(pos);
+
+            if (tile.HasAdjacentNeighbor(nextTile))
+            {
+                transform.position = pos + getDir(nextTile);
+            }
+            else
+            {
+                switch (nextTile)
+                {
+                    case TileCheck.Up:
+                        if (tile.HasAdjacentNeighbor(TileCheck.Right) || tile.HasAdjacentNeighbor(TileCheck.Left))
+                            nextTile = tile.HasAdjacentNeighbor(TileCheck.Right) ? TileCheck.Right : TileCheck.Left;  
+                        else
+                            nextTile = TileCheck.Down;
+                        break;
+                    case TileCheck.Left:
+                        if (tile.HasAdjacentNeighbor(TileCheck.Up) || tile.HasAdjacentNeighbor(TileCheck.Down))
+                            nextTile = tile.HasAdjacentNeighbor(TileCheck.Up) ? TileCheck.Up : TileCheck.Down;
+                        else
+                            nextTile = TileCheck.Right;
+                        break;
+                    case TileCheck.Down:
+                        if (tile.HasAdjacentNeighbor(TileCheck.Right) || tile.HasAdjacentNeighbor(TileCheck.Left))
+                            nextTile = tile.HasAdjacentNeighbor(TileCheck.Right) ? TileCheck.Right : TileCheck.Left;
+                        else
+                            nextTile = TileCheck.Up;
+                        break;
+                    case TileCheck.Right:
+                        if (tile.HasAdjacentNeighbor(TileCheck.Up) || tile.HasAdjacentNeighbor(TileCheck.Down))
+                            nextTile = tile.HasAdjacentNeighbor(TileCheck.Up) ? TileCheck.Up : TileCheck.Down;
+                        else
+                            nextTile = TileCheck.Left;
+                        break;
+
+                }
+
+                transform.position = pos + getDir(nextTile);
+            }
         }
 
-        //Start next move
-        if (number > 0)
+        Vector3Int getDir(TileCheck check)
         {
-            yield return new WaitForSeconds(0.5f);
-            StartCoroutine(AdvanceTiles(number));
+            switch (check)
+            {
+                case TileCheck.Left:
+                    return Vector3Int.left;
+                case TileCheck.Right:
+                    return Vector3Int.right;
+                case TileCheck.Up:
+                    return Vector3Int.up;
+                case TileCheck.Down:
+                    return Vector3Int.down;
+                default:
+                    return Vector3Int.down;
+            }
         }
     }
+}
+
+public enum PlayerColor
+{
+    Red,
+    Blue,
+    Green,
+    Pink
 }
