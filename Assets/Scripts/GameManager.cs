@@ -9,21 +9,19 @@ public class GameManager : Singleton<GameManager>
     public int gameTurn;
     public int playerTurn;
     public bool gameStarted;
+    public bool gameEnded;
     [SerializeField] private GameObject playerGroup;
-    public GameObject PlayerGroup { set { playerGroup = value; } }
-    [SerializeField] public CanvasScript canvas;
+    [SerializeField] private CanvasScript canvas;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private List<PlayerScript> players = new();
-    private Dictionary<PlayerColor, PlayerScript> playersByColor = new();
     [SerializeField] private List<int> diceValues = new();
     [SerializeField] private Color red, blue, green, pink;
 
     [SerializeField] private Tilemap map;
-    public Tilemap Map { get { return map; } set { map = value; } }
+    public Tilemap Map { get { return map; } }
     [SerializeField] private List<TileData> tileDatas;
     private Dictionary<TileBase, TileData> dataFromTiles;
-
-    private bool someoneWon = false;
+    
 
     protected new void Awake()
     {
@@ -31,7 +29,6 @@ public class GameManager : Singleton<GameManager>
         if (setToDestroy)
             return;
 
-        players.Capacity = 4;
         dataFromTiles = new();
 
         foreach (TileData tileData in tileDatas)
@@ -42,18 +39,22 @@ public class GameManager : Singleton<GameManager>
             }
         }
 
-        
-        
-    }
+        //Get all available players
+        players = new List<PlayerScript>();
 
-    private void Start()
-    {
-        
+        for (int i = 0; i < playerGroup.transform.childCount; i++)
+        {
+            PlayerScript currentPlayer = playerGroup.transform.GetChild(i).GetComponent<PlayerScript>();
+
+            if (currentPlayer.gameObject.activeSelf)
+            {
+                players.Add(currentPlayer);
+            }
+        }
     }
 
     private void Update()
     {
-        
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -75,6 +76,24 @@ public class GameManager : Singleton<GameManager>
         {
             StartGame();
         }
+
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (CanvasScript.Instance.paused)
+            {
+                CanvasScript.Instance.Unpause();
+            }
+            else
+            {
+                CanvasScript.Instance.Pause();
+            }
+        }
+
+        if (CheckWinCondition() && !gameEnded)
+        {
+            gameEnded = true;
+            StartCoroutine(CanvasScript.Instance.WinAnimation());
+        }
     }
 
     public void StartGame()
@@ -91,23 +110,14 @@ public class GameManager : Singleton<GameManager>
 
     public void RestartLevel()
     {
-        someoneWon = false;
-        gameTurn = 0;
-        playerTurn = 0;
-        diceValues.Clear();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void PassTurn()
     {
-        if (someoneWon)
-            return;
-
         PlayerScript currentPlayer = players[playerTurn];
         if (gameTurn < diceValues.Count)
-            StartCoroutine(currentPlayer.Timer(diceValues[gameTurn]));
-        else
-            TickGameOver();
+            StartCoroutine(currentPlayer.timer(diceValues[gameTurn]));
 
         gameTurn++;
 
@@ -122,50 +132,15 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void SetPlayer(PlayerScript player)
+    private bool CheckWinCondition()
     {
-        playersByColor[player.Color] = player;
-        switch (player.Color)
+        foreach (PlayerScript player in players)
         {
-            case PlayerColor.Red:
-                players[0] = player;
-                break;
-            case PlayerColor.Blue:
-                players[1] = player;
-                break;
-            case PlayerColor.Green:
-                players[2] = player;
-                break;
-            case PlayerColor.Yellow:
-                players[3] = player;
-                break;
-        }
-    }
-
-    public PlayerScript GetPlayer(PlayerColor color)
-    {
-        return playersByColor[color];
-    }
-
-    public void TickGameOver()
-    {
-        someoneWon = true;
-    }
-
-    public void SetPlayerGroup(GameObject playerGroup)
-    {
-        this.playerGroup = playerGroup;
-        //Get all available players
-        players = new List<PlayerScript>();
-
-        for (int i = 0; i < this.playerGroup.transform.childCount; i++)
-        {
-            PlayerScript currentPlayer = this.playerGroup.transform.GetChild(i).GetComponent<PlayerScript>();
-
-            if (currentPlayer.gameObject.activeSelf)
+            if (player.gameObject.activeSelf)
             {
-                players.Add(currentPlayer);
+                return false;
             }
         }
+        return true;
     }
 }

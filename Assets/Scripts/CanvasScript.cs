@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CanvasScript : Singleton<CanvasScript>
 {
@@ -10,11 +11,16 @@ public class CanvasScript : Singleton<CanvasScript>
     public List<GameObject> dices;
     [SerializeField] GameObject diceGroup;
     public Sprite[] diceSprites;
+    [SerializeField] private GameObject gameUIGroup;
+    [SerializeField] private GameObject pauseMenu;
+    public bool paused;
+    [SerializeField] private GameObject winText;
+    [SerializeField] private Animator transitionAnimator;
 
     private void Start()
     {
-        GameManager.Instance.canvas = this;
-
+        transitionAnimator.gameObject.SetActive(true);
+        transitionAnimator.CrossFade("FadeOut",0);
         //Get all available dices
         dices = new List<GameObject>();
 
@@ -48,11 +54,6 @@ public class CanvasScript : Singleton<CanvasScript>
         SortDices(null);
     }
 
-    private void OnGUI()
-    {
-        SortDices(null);
-    }
-
     public void SortDices(GameObject heldDice)
     {
         dices.Sort((left, right) => left.transform.position.x.CompareTo(right.transform.position.x));
@@ -66,13 +67,41 @@ public class CanvasScript : Singleton<CanvasScript>
         }
     }
 
-    public void SortDices()
+    public void Pause()
     {
-        dices.Sort((left, right) => left.transform.position.x.CompareTo(right.transform.position.x));
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+        gameUIGroup.SetActive(false);
+        MusicManager.Instance.PauseMusic();
+        paused = true;
+    }
 
-        for (int i = 0; i < dices.Count; i++)
-        {
-            dices[i].GetComponent<DiceScript>().targetPosition = dicePositions[i].position.x;
-        }
+    public void Unpause()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+        gameUIGroup.SetActive(true);
+        MusicManager.Instance.UnpauseMusic();
+        paused = false;
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("TitleScreen");
+        Unpause();
+    }
+
+    private void OnGUI()
+    {
+        SortDices(null);
+    }
+
+    public IEnumerator WinAnimation()
+    {
+        winText.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
+        transitionAnimator.CrossFade("FadeIn", 0);
+        yield return new WaitForSeconds(0.2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
