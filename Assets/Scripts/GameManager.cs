@@ -9,6 +9,7 @@ public class GameManager : Singleton<GameManager>
     public int gameTurn;
     public int playerTurn;
     public bool gameStarted;
+    public bool gameEnded;
     [SerializeField] private GameObject playerGroup;
     [SerializeField] private CanvasScript canvas;
     [SerializeField] private GameObject playerPrefab;
@@ -20,6 +21,7 @@ public class GameManager : Singleton<GameManager>
     public Tilemap Map { get { return map; } }
     [SerializeField] private List<TileData> tileDatas;
     private Dictionary<TileBase, TileData> dataFromTiles;
+    
 
     protected new void Awake()
     {
@@ -80,10 +82,17 @@ public class GameManager : Singleton<GameManager>
             if (CanvasScript.Instance.paused)
             {
                 CanvasScript.Instance.Unpause();
-            } else
+            }
+            else
             {
                 CanvasScript.Instance.Pause();
             }
+        }
+
+        if (CheckWinCondition() && !gameEnded)
+        {
+            gameEnded = true;
+            StartCoroutine(CanvasScript.Instance.WinAnimation());
         }
     }
 
@@ -107,7 +116,7 @@ public class GameManager : Singleton<GameManager>
     public void PassTurn()
     {
         PlayerScript currentPlayer = players[playerTurn];
-        if(gameTurn < diceValues.Count)
+        if (gameTurn < diceValues.Count)
             StartCoroutine(currentPlayer.timer(diceValues[gameTurn]));
 
         gameTurn++;
@@ -121,5 +130,17 @@ public class GameManager : Singleton<GameManager>
             }
             while (!players[playerTurn].gameObject.activeSelf);
         }
+    }
+
+    private bool CheckWinCondition()
+    {
+        foreach (PlayerScript player in players)
+        {
+            if (player.gameObject.activeSelf)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

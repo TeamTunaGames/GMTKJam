@@ -14,9 +14,13 @@ public class CanvasScript : Singleton<CanvasScript>
     [SerializeField] private GameObject gameUIGroup;
     [SerializeField] private GameObject pauseMenu;
     public bool paused;
+    [SerializeField] private GameObject winText;
+    [SerializeField] private Animator transitionAnimator;
 
     private void Start()
     {
+        transitionAnimator.gameObject.SetActive(true);
+        transitionAnimator.CrossFade("FadeOut",0);
         //Get all available dices
         dices = new List<GameObject>();
 
@@ -85,5 +89,19 @@ public class CanvasScript : Singleton<CanvasScript>
     {
         SceneManager.LoadScene("TitleScreen");
         Unpause();
+    }
+
+    private void OnGUI()
+    {
+        SortDices(null);
+    }
+
+    public IEnumerator WinAnimation()
+    {
+        winText.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
+        transitionAnimator.CrossFade("FadeIn", 0);
+        yield return new WaitForSeconds(0.2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
