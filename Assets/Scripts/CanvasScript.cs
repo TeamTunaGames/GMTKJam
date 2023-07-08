@@ -46,6 +46,11 @@ public class CanvasScript : Singleton<CanvasScript>
         SortDices(null);
     }
 
+    private void OnGUI()
+    {
+        SortDices(null);
+    }
+
     public void SortDices(GameObject heldDice)
     {
         dices.Sort((left, right) => left.transform.position.x.CompareTo(right.transform.position.x));
@@ -56,6 +61,16 @@ public class CanvasScript : Singleton<CanvasScript>
             {
                 dices[i].GetComponent<DiceScript>().targetPosition = dicePositions[i].position.x;
             }
+        }
+    }
+
+    public void SortDices()
+    {
+        dices.Sort((left, right) => left.transform.position.x.CompareTo(right.transform.position.x));
+
+        for (int i = 0; i < dices.Count; i++)
+        {
+            dices[i].GetComponent<DiceScript>().targetPosition = dicePositions[i].position.x;
         }
     }
 }

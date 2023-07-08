@@ -104,12 +104,12 @@ public class GameManager : Singleton<GameManager>
 
         if (gameTurn < diceValues.Count)
         {
-            playerTurn++;
-
-            if (playerTurn >= players.Count)
+            do
             {
-                playerTurn = 0;
+                playerTurn++;
+                playerTurn %= players.Count;
             }
+            while (!players[playerTurn].gameObject.activeSelf);
         }
     }
 }

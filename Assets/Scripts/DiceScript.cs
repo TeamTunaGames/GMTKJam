@@ -36,7 +36,7 @@ public class DiceScript : MonoBehaviour
 
             if (Input.GetMouseButtonUp(0))
             {
-                CanvasScript.Instance.SortDices(null);
+                CanvasScript.Instance.SortDices();
                 dragged = false;
             }
 
