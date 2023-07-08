@@ -80,6 +80,11 @@ public class VariableTile : Tile
         AssetDatabase.CreateAsset(CreateInstance<VariableTile>(), path);
     }
 #endif
+
+    public virtual void landed(PlayerScript playerScript)
+    {
+
+    }
 }
 
 public enum TileCheck
