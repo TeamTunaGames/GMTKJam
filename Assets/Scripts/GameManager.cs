@@ -10,16 +10,20 @@ public class GameManager : Singleton<GameManager>
     public int playerTurn;
     public bool gameStarted;
     [SerializeField] private GameObject playerGroup;
-    [SerializeField] private CanvasScript canvas;
+    public GameObject PlayerGroup { set { playerGroup = value; } }
+    [SerializeField] public CanvasScript canvas;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private List<PlayerScript> players = new();
+    private Dictionary<PlayerColor, PlayerScript> playersByColor = new();
     [SerializeField] private List<int> diceValues = new();
     [SerializeField] private Color red, blue, green, pink;
 
     [SerializeField] private Tilemap map;
-    public Tilemap Map { get { return map; } }
+    public Tilemap Map { get { return map; } set { map = value; } }
     [SerializeField] private List<TileData> tileDatas;
     private Dictionary<TileBase, TileData> dataFromTiles;
+
+    private bool someoneWon = false;
 
     protected new void Awake()
     {
@@ -27,6 +31,7 @@ public class GameManager : Singleton<GameManager>
         if (setToDestroy)
             return;
 
+        players.Capacity = 4;
         dataFromTiles = new();
 
         foreach (TileData tileData in tileDatas)
@@ -37,18 +42,13 @@ public class GameManager : Singleton<GameManager>
             }
         }
 
-        //Get all available players
-        players = new List<PlayerScript>();
+        
+        
+    }
 
-        for (int i = 0; i < playerGroup.transform.childCount; i++)
-        {
-            PlayerScript currentPlayer = playerGroup.transform.GetChild(i).GetComponent<PlayerScript>();
-
-            if (currentPlayer.gameObject.activeSelf)
-            {
-                players.Add(currentPlayer);
-            }
-        }
+    private void Start()
+    {
+        
     }
 
     private void Update()
@@ -91,14 +91,23 @@ public class GameManager : Singleton<GameManager>
 
     public void RestartLevel()
     {
+        someoneWon = false;
+        gameTurn = 0;
+        playerTurn = 0;
+        diceValues.Clear();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void PassTurn()
     {
+        if (someoneWon)
+            return;
+
         PlayerScript currentPlayer = players[playerTurn];
-        if(gameTurn < diceValues.Count)
-            StartCoroutine(currentPlayer.timer(diceValues[gameTurn]));
+        if (gameTurn < diceValues.Count)
+            StartCoroutine(currentPlayer.Timer(diceValues[gameTurn]));
+        else
+            TickGameOver();
 
         gameTurn++;
 
@@ -110,6 +119,53 @@ public class GameManager : Singleton<GameManager>
                 playerTurn %= players.Count;
             }
             while (!players[playerTurn].gameObject.activeSelf);
+        }
+    }
+
+    public void SetPlayer(PlayerScript player)
+    {
+        playersByColor[player.Color] = player;
+        switch (player.Color)
+        {
+            case PlayerColor.Red:
+                players[0] = player;
+                break;
+            case PlayerColor.Blue:
+                players[1] = player;
+                break;
+            case PlayerColor.Green:
+                players[2] = player;
+                break;
+            case PlayerColor.Yellow:
+                players[3] = player;
+                break;
+        }
+    }
+
+    public PlayerScript GetPlayer(PlayerColor color)
+    {
+        return playersByColor[color];
+    }
+
+    public void TickGameOver()
+    {
+        someoneWon = true;
+    }
+
+    public void SetPlayerGroup(GameObject playerGroup)
+    {
+        this.playerGroup = playerGroup;
+        //Get all available players
+        players = new List<PlayerScript>();
+
+        for (int i = 0; i < this.playerGroup.transform.childCount; i++)
+        {
+            PlayerScript currentPlayer = this.playerGroup.transform.GetChild(i).GetComponent<PlayerScript>();
+
+            if (currentPlayer.gameObject.activeSelf)
+            {
+                players.Add(currentPlayer);
+            }
         }
     }
 }

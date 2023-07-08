@@ -21,7 +21,7 @@ public class DeathTile : VariableTile
     }
 #endif
 
-    public override void landed(PlayerScript playerScript)
+    public override void Landed(PlayerScript playerScript)
     {
         if (playerScript.Color == playerColor)
         {

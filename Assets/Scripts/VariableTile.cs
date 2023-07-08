@@ -78,7 +78,7 @@ public class VariableTile : Tile
     [MenuItem("Assets/Create/2D/Custom Tiles/Variable Tile")]
     public static void CreateVariableTile()
     {
-        string path = EditorUtility.SaveFilePanelInProject("Save Variable Tile", "New Variable Tile", "Asset", "Save Variable Tile", "Assets");
+        string path = EditorUtility.SaveFilePanelInProject($"Save Variable Tile", "New Variable Tile", "Asset", "Save Variable Tile", "Assets/Tile");
         if (path == string.Empty)
             return;
         
@@ -86,7 +86,7 @@ public class VariableTile : Tile
     }
 #endif
 
-    public virtual void landed(PlayerScript playerScript)
+    public virtual void Landed(PlayerScript playerScript)
     {
 
     }

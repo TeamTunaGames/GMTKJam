@@ -10,9 +10,9 @@ public class DirectionChangeTile : VariableTile
 {
     public TileCheck newDirection;
 
-    public override void landed(PlayerScript playerScript)
+    public override void Landed(PlayerScript playerScript)
     {
-        playerScript.SetNewDirection(newDirection);
+        playerScript.NextTile = newDirection;
     }
 
 #if UNITY_EDITOR

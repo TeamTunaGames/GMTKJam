@@ -13,6 +13,8 @@ public class CanvasScript : Singleton<CanvasScript>
 
     private void Start()
     {
+        GameManager.Instance.canvas = this;
+
         //Get all available dices
         dices = new List<GameObject>();
 
