@@ -16,8 +16,8 @@ public class VariableTile : Tile
 
     public override bool StartUp(Vector3Int position, ITilemap tilemap, GameObject go)
     {
-        
-        
+
+
         return true;
     }
 
@@ -58,7 +58,7 @@ public class VariableTile : Tile
 
     private void GetNeighbors(Vector3Int location, ITilemap tileMap)
     {
-        
+
         TileBase tile;
 
         tile = tileMap.GetTile(location + Vector3Int.right);
@@ -71,6 +71,7 @@ public class VariableTile : Tile
         tileNeighbors[TileCheck.Down] = tile;
     }
 
+
 #if UNITY_EDITOR
     [MenuItem("Assets/Create/2D/Custom Tiles/Variable Tile")]
     public static void CreateVariableTile()
@@ -78,10 +79,15 @@ public class VariableTile : Tile
         string path = EditorUtility.SaveFilePanelInProject("Save Variable Tile", "New Variable Tile", "Asset", "Save Variable Tile", "Assets");
         if (path == string.Empty)
             return;
-        
+
         AssetDatabase.CreateAsset(CreateInstance<VariableTile>(), path);
     }
 #endif
+
+    public virtual void landed(PlayerScript playerScript)
+    {
+        
+    }
 }
 
 public enum TileCheck
@@ -91,3 +97,5 @@ public enum TileCheck
     Left,
     Right,
 }
+
+
