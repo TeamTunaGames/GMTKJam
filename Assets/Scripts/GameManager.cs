@@ -53,7 +53,6 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -74,6 +73,17 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             StartGame();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (CanvasScript.Instance.paused)
+            {
+                CanvasScript.Instance.Unpause();
+            } else
+            {
+                CanvasScript.Instance.Pause();
+            }
         }
     }
 

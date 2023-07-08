@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CanvasScript : Singleton<CanvasScript>
 {
@@ -10,6 +11,9 @@ public class CanvasScript : Singleton<CanvasScript>
     public List<GameObject> dices;
     [SerializeField] GameObject diceGroup;
     public Sprite[] diceSprites;
+    [SerializeField] private GameObject gameUIGroup;
+    [SerializeField] private GameObject pauseMenu;
+    public bool paused;
 
     private void Start()
     {
@@ -57,5 +61,29 @@ public class CanvasScript : Singleton<CanvasScript>
                 dices[i].GetComponent<DiceScript>().targetPosition = dicePositions[i].position.x;
             }
         }
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+        gameUIGroup.SetActive(false);
+        MusicManager.Instance.PauseMusic();
+        paused = true;
+    }
+
+    public void Unpause()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+        gameUIGroup.SetActive(true);
+        MusicManager.Instance.UnpauseMusic();
+        paused = false;
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("TitleScreen");
+        Unpause();
     }
 }
