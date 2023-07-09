@@ -9,6 +9,10 @@ public class MusicManager : Singleton<MusicManager>
     [SerializeField] private AudioSource audioSource;
     private bool musicPaused;
 
+    public AudioClip playerMoveSound;
+    public AudioClip playerDeathSound;
+    public AudioClip playerWinSound;
+
     protected new void Awake()
     {
         base.Awake();
@@ -19,7 +23,7 @@ public class MusicManager : Singleton<MusicManager>
         switch (SceneManager.GetActiveScene().name)
         {
             case "TitleScreen":
-            case "Level1":
+            case "Grass1":
                 PlayMusic(musicTracks[0]);
                 break;
         }
@@ -43,5 +47,10 @@ public class MusicManager : Singleton<MusicManager>
     {
         musicPaused = false;
         audioSource.UnPause();
+    }
+
+    public void PlaySound(AudioClip sound, float volume)
+    {
+        audioSource.PlayOneShot(sound, volume);
     }
 }

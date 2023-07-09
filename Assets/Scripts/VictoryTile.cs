@@ -11,6 +11,8 @@ public class VictoryTile : VariableTile
 
     public override void Landed(PlayerScript playerScript)
     {
+        MusicManager.Instance.PlaySound(MusicManager.Instance.playerWinSound, 0.25f);
+        playerScript.confetti.Play();
         GameManager.Instance.TickGameOver();
     }
 
