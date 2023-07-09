@@ -25,9 +25,14 @@ public class GameManager : Singleton<GameManager>
 
     private bool someoneWon = false;
 
+    [SerializeField] private List<SceneReference> levels;
+    public int levelNumber = 0;
+    public int deadPlayers = 0;
+
     protected new void Awake()
     {
         base.Awake();
+        DontDestroyOnLoad(gameObject);
         if (setToDestroy)
             return;
 
@@ -46,26 +51,10 @@ public class GameManager : Singleton<GameManager>
         
     }
 
-    private void Start()
-    {
-        
-    }
-
     private void Update()
     {
         
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int gridPosition = map.WorldToCell(mousePosition);
-
-            VariableTile clickedTile = map.GetTile<VariableTile>(gridPosition);
-
-            map.RefreshTile(gridPosition);
-            if (clickedTile != null)
-                clickedTile.PrintData();
-        }
-
+        
         if (Input.GetKeyDown(KeyCode.R))
         {
             RestartLevel();
@@ -79,6 +68,9 @@ public class GameManager : Singleton<GameManager>
 
     public void StartGame()
     {
+        if (gameStarted)
+            return;
+
         foreach (GameObject dice in canvas.dices)
         {
             diceValues.Add(dice.GetComponent<DiceScript>().diceValue);
@@ -91,15 +83,25 @@ public class GameManager : Singleton<GameManager>
 
     public void RestartLevel()
     {
+        ResetValues();
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void ResetValues()
+    {
         someoneWon = false;
+        gameStarted = false;
         gameTurn = 0;
         playerTurn = 0;
+        deadPlayers = 0;
         diceValues.Clear();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void PassTurn()
     {
+        if (deadPlayers == players.Count)
+            LoadNextLevel();
         if (someoneWon)
             return;
 
@@ -167,5 +169,17 @@ public class GameManager : Singleton<GameManager>
                 players.Add(currentPlayer);
             }
         }
+    }
+
+    public void LoadNextLevel()
+    {
+        ResetValues();
+        SceneManager.LoadScene(levels[levelNumber]);
+        levelNumber++;
+    }
+
+    public void LoadLevel(SceneReference scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 }

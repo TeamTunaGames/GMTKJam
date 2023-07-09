@@ -40,10 +40,7 @@ public class CanvasScript : Singleton<CanvasScript>
             }
         }
         //Make dices align to the center
-        if (dicePositions.Count % 2 == 0)
-        {
-            dicePositionGroup.transform.Translate(new Vector3(-60, 0));
-        }
+        
 
         SortDices(null);
     }
@@ -74,5 +71,15 @@ public class CanvasScript : Singleton<CanvasScript>
         {
             dices[i].GetComponent<DiceScript>().targetPosition = dicePositions[i].position.x;
         }
+    }
+
+    public void OnPressPlay()
+    {
+        GameManager.Instance.StartGame();
+    }
+
+    public void OnRestartLevel()
+    {
+        GameManager.Instance.RestartLevel();
     }
 }

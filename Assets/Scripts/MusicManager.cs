@@ -12,6 +12,7 @@ public class MusicManager : Singleton<MusicManager>
     protected new void Awake()
     {
         base.Awake();
+        DontDestroyOnLoad(gameObject);
     }
     private void Update()
     {

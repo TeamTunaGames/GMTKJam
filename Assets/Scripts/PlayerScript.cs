@@ -133,7 +133,6 @@ public class PlayerScript : MonoBehaviour
         tilemap.RefreshTile(pos2);
 
         VariableTile tile2 = tilemap.GetTile<VariableTile>(pos2);
-        print(tile2);
         tile2.Landed(this);
     }
 

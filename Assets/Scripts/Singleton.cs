@@ -14,7 +14,7 @@ public class Singleton<T> : MonoBehaviour where T : Component
             setToDestroy = true;
             return;
         }
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         Instance = this as T;
     }
 }

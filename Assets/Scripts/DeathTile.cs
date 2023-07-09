@@ -7,6 +7,7 @@ using UnityEditor;
 
 public class DeathTile : VariableTile
 {
+    public bool neutral = false;
     public PlayerColor playerColor;
 
 #if UNITY_EDITOR
@@ -23,9 +24,10 @@ public class DeathTile : VariableTile
 
     public override void Landed(PlayerScript playerScript)
     {
-        if (playerScript.Color == playerColor)
+        if (neutral || playerScript.Color == playerColor)
         {
             playerScript.gameObject.SetActive(false);
+            GameManager.Instance.deadPlayers++;
         }
     }
 }
