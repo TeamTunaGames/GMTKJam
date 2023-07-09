@@ -11,7 +11,6 @@ public class DiceScript : MonoBehaviour
     public int diceValue;
     [SerializeField] private Image diceImage;
     public float targetPosition;
-    public Animator diceAnimator;
 
     private void Start()
     {
