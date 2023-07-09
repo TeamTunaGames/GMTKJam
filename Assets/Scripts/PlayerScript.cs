@@ -68,13 +68,12 @@ public class PlayerScript : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.25f);
+
         Vector3Int pos2 = new((int)transform.position.x, (int)transform.position.y);
         tilemap.RefreshTile(pos2);
 
         VariableTile tile2 = tilemap.GetTile<VariableTile>(pos2);
         tile2.Landed(this);
-
-
 
         yield return new WaitForSeconds(0.25f);
         GameManager.Instance.PassTurn();

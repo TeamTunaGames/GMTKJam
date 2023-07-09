@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 09dab1c275d17ab44824a150e4450f6d
+guid: 216d61a226946c14d9f4ddc4372a6fb3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -51,7 +51,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -101,145 +101,58 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Victims_0
+      name: pieces 1_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 121
-        width: 26
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4cbe8b43002706742b629287d7d9b988
-      internalID: 649709219
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Victims_1
-      rect:
-        serializedVersion: 2
-        x: 61
-        y: 121
-        width: 22
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ba328420d93b544f8f822ff18b99dec
-      internalID: 1751936760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Victims_2
-      rect:
-        serializedVersion: 2
-        x: 108
-        y: 119
-        width: 24
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 31dfb5425bd56b9419dc0adfa3b408a9
-      internalID: 1050859893
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Victims_3
-      rect:
-        serializedVersion: 2
-        x: 158
-        y: 120
-        width: 20
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b604daf2b4dcd6a46a0f81fff966f547
-      internalID: -899836971
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Victims_4
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 122
-        width: 15
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3e22b40acdd82249b0d787f39be56f9
-      internalID: -1644754088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Victims_5
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 74
+        x: 0
+        y: 48
         width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfc73d000d62a6246aca180b9dfd4455
+      internalID: -875000082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pieces 1_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 48
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 426336526d0bfba4ebf94e273538042c
+      internalID: 435805703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pieces 1_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 48
+        width: 14
         height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -248,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b954897ef232f0479eb67d1a4884bcb
-      internalID: 123776590
+      spriteID: e5e57b5e0a5e1cc4695fde487e23c960
+      internalID: -1836686145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Victims_6
+      name: pieces 1_3
       rect:
         serializedVersion: 2
-        x: 69
-        y: 77
-        width: 12
-        height: 8
+        x: 67
+        y: 48
+        width: 10
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65b30708c37ff714abc5cf29208f0e55
-      internalID: -311880382
+      spriteID: f59a175bdf302f5498d8849166f7cc5d
+      internalID: -36016331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Victims_7
+      name: pieces 1_4
       rect:
         serializedVersion: 2
-        x: 109
-        y: 84
-        width: 26
-        height: 4
+        x: 0
+        y: 32
+        width: 16
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,20 +203,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89e30b5e2ebea924fa7345c1bcba7589
-      internalID: -1564652718
+      spriteID: 4db432d51b1f3744685e21cb74892a8c
+      internalID: 956519756
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Victims_8
+      name: pieces 1_5
       rect:
         serializedVersion: 2
-        x: 164
-        y: 74
+        x: 33
+        y: 32
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d0f7890d4be3b04297443573eeea3c2
+      internalID: -553083015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pieces 1_6
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 32
         width: 14
-        height: 9
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,20 +245,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1892175ce66435d45b2e775a1b009278
-      internalID: 1205018427
+      spriteID: 264feb12b70e1a0498f3b5042a28d168
+      internalID: -344652266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Victims_9
+      name: pieces 1_7
       rect:
         serializedVersion: 2
-        x: 208
-        y: 79
+        x: 0
+        y: 16
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bab538162c0e1c459edcd57c6f4e853
+      internalID: -219198866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pieces 1_8
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 16
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9f71002161911249ad39ea077612422
+      internalID: -1423728972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pieces 1_9
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 16
         width: 14
-        height: 9
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,20 +308,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 021ac7e7f410e1941a3a1d603d8b756b
-      internalID: 1925450185
+      spriteID: b1255b74993145d4eb9d47766b722735
+      internalID: -751919930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Victims_10
+      name: pieces 1_10
       rect:
         serializedVersion: 2
-        x: 12
+        x: 0
         y: 0
-        width: 27
-        height: 22
+        width: 16
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -353,20 +329,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab058587538976c42b736044988525e6
-      internalID: 1864764316
+      spriteID: 5d2b24d984f1329469575015429b562d
+      internalID: 1202993555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Victims_11
+      name: pieces 1_11
       rect:
         serializedVersion: 2
-        x: 57
+        x: 33
         y: 0
-        width: 30
-        height: 23
+        width: 15
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -374,62 +350,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8b8cce92e83f5d4b8d3e320d8d66d87
-      internalID: -1787040542
+      spriteID: ac61b579340522f429bb1a31158dd53c
+      internalID: 1404252994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Victims_12
+      name: pieces 1_12
       rect:
         serializedVersion: 2
-        x: 108
-        y: 0
-        width: 28
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46a96ed14ac42ac41a5156f261d3f08f
-      internalID: 634894475
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Victims_13
-      rect:
-        serializedVersion: 2
-        x: 156
-        y: 0
-        width: 27
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 72db73fae38d9684b8820b797811f9cd
-      internalID: -1397558395
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Victims_14
-      rect:
-        serializedVersion: 2
-        x: 208
+        x: 49
         y: 0
         width: 14
-        height: 22
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -437,8 +371,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afa807b880a34864eab44565b933188f
-      internalID: -832848201
+      spriteID: 618c175b5b9dd7543b4dba5a2064fbb6
+      internalID: -1526270994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pieces 1_13
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9898b7cea85df1646b71efe5a81f19d1
+      internalID: -25960437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pieces 1_14
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f9a1eebe50db640a2eeffe99f0d1da
+      internalID: 288708309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pieces 1_15
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f23abfcb319ac7c49ab67b32bcc04cfd
+      internalID: -1375572338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pieces 1_16
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f58fdc99e1e1db43a00c88aad39bacd
+      internalID: 176159969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pieces 1_17
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 32
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0145a8298f053c04a9b46de1d3f11be5
+      internalID: 1754374231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pieces 1_18
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 16
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b1c90699df91242b337c7faa73c936
+      internalID: 829290811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pieces 1_19
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 0
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0dfcd5314ffb74e86fe59ec6b3079d
+      internalID: 816093065
       vertices: []
       indices: 
       edges: []
@@ -446,7 +527,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 926692c0f1e3c5d4ea80545c81cbc880
+    spriteID: d6df7b89e0cc1c04d954a17a1ca45456
     internalID: 0
     vertices: []
     indices: 
@@ -454,21 +535,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Victims_3: 1050859893
-      Victims_11: 1864764316
-      Victims_8: -1564652718
-      Victims_6: 123776590
-      Victims_9: 1205018427
-      Victims_2: 1751936760
-      Victims_7: -311880382
-      Victims_10: 1925450185
-      Victims_4: -899836971
-      Victims_5: -1644754088
-      Victims_1: 28647849
-      Victims_0: 649709219
-      Victims_12: -1787040542
-      Victims_13: 634894475
-      Victims_14: -1397558395
+      pieces 1_2: -1836686145
+      pieces 1_6: -344652266
+      pieces 1_1: 435805703
+      pieces 1_9: -751919930
+      pieces 1_19: 816093065
+      pieces 1_4: 956519756
+      pieces 1_7: -219198866
+      pieces 1_15: -1375572338
+      pieces 1_16: 176159969
+      pieces 1_18: 829290811
+      pieces 1_8: -1423728972
+      pieces 1_13: -25960437
+      pieces 1_11: 1404252994
+      pieces 1_12: -1526270994
+      pieces 1_0: -875000082
+      pieces 1_3: -36016331
+      pieces 1_14: 288708309
+      pieces 1_5: -553083015
+      pieces 1_10: 1202993555
+      pieces 1_17: 1754374231
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
