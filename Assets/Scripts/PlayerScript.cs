@@ -76,7 +76,7 @@ public class PlayerScript : MonoBehaviour
 
                 }
 
-                transform.position = pos + GetDir(nextTile);
+                targetPos = pos + GetDir(nextTile);
             }
         }
 
@@ -106,7 +106,7 @@ public class PlayerScript : MonoBehaviour
 
             if (tile.HasAdjacentNeighbor(nextTile))
             {
-                targetPos = pos + GetDir(nextTile);
+                transform.position = pos + GetDir(nextTile);
             }
             else
             {
@@ -139,10 +139,10 @@ public class PlayerScript : MonoBehaviour
 
                 }
 
-                targetPos = pos + GetDir(nextTile);
+                transform.position = pos + GetDir(nextTile);
             }
         }
-        targetPos = transform.position;
+        transform.position = transform.position;
         Vector3Int pos2 = new(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
         tilemap.RefreshTile(pos2);
 
@@ -164,7 +164,7 @@ public class PlayerScript : MonoBehaviour
 
             if (tile.HasAdjacentNeighbor(nextTile))
             {
-                targetPos = pos + GetOppositeDir(nextTile);
+                transform.position = pos + GetOppositeDir(nextTile);
             }
             else
             {
@@ -197,10 +197,10 @@ public class PlayerScript : MonoBehaviour
 
                 }
 
-                targetPos = pos + GetOppositeDir(nextTile);
+                transform.position = pos + GetOppositeDir(nextTile);
             }
         }
-        targetPos = transform.position;
+        transform.position = transform.position;
         Vector3Int pos2 = new((int)transform.position.x, (int)transform.position.y);
         tilemap.RefreshTile(pos2);
 

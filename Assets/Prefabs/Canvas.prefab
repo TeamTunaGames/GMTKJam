@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 26, y: -10}
+  m_AnchoredPosition: {x: 26, y: 0}
   m_SizeDelta: {x: 112.5, y: 93.75}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2765973405356798146
@@ -672,9 +672,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -65, y: -60}
+  m_AnchoredPosition: {x: -62, y: 0}
   m_SizeDelta: {x: 112.5, y: 93.75}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 1}
 --- !u!222 &569742779882536345
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2355,9 +2355,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -187, y: -60}
+  m_AnchoredPosition: {x: -218, y: 0}
   m_SizeDelta: {x: 112.5, y: 93.75}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 1}
 --- !u!222 &569742781266181941
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2465,7 +2465,6 @@ GameObject:
   - component: {fileID: 192057119745905635}
   - component: {fileID: 2764464021925511997}
   - component: {fileID: 4997533611093674004}
-  - component: {fileID: 2016929438}
   m_Layer: 5
   m_Name: Dice10
   m_TagString: Untagged
@@ -2548,7 +2547,7 @@ MonoBehaviour:
   diceValue: 3
   diceImage: {fileID: 192057119745905635}
   targetPosition: 8
-  diceAnimator: {fileID: 2016929438}
+  diceAnimator: {fileID: 0}
 --- !u!114 &4997533611093674004
 MonoBehaviour:
   m_ObjectHideFlags: 0
