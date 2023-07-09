@@ -19,9 +19,9 @@ public class SwapTile : VariableTile
         Vector3 position = playerScript.transform.position;
         TileCheck direction = playerScript.NextTile;
 
-        playerScript.transform.position = swapPlayer.transform.position;
+        playerScript.targetPos = swapPlayer.transform.position;
         playerScript.NextTile = swapPlayer.NextTile;
-        swapPlayer.transform.localPosition = position;
+        swapPlayer.targetPos = position;
         swapPlayer.NextTile = direction;
     }
 
