@@ -7,18 +7,28 @@ public class PlayerScript : MonoBehaviour
 {
     [SerializeField] private string playerName;
     [SerializeField] private PlayerColor color;
+    public Color spriteColor;
+    public ParticleSystem confetti;
     public PlayerColor Color { get { return color; } }
     [SerializeField] private TileCheck nextTile = TileCheck.Right;
     public TileCheck NextTile { get { return nextTile; } set { nextTile = value; } }
+<<<<<<< HEAD
     public Vector3 targetPos;
     private Vector3 vel = Vector3.zero;
+=======
+    private Vector3 targetPosition;
+>>>>>>> gargantus3
 
     private const float moveTimer = .25f;
 
     private void Start()
     {
         GameManager.Instance.SetPlayer(this);
+<<<<<<< HEAD
         targetPos = transform.position;
+=======
+        targetPosition = transform.position;
+>>>>>>> gargantus3
     }
 
     private void Update()
@@ -36,6 +46,8 @@ public class PlayerScript : MonoBehaviour
             tilemap.RefreshTile(pos);
 
             VariableTile tile = tilemap.GetTile<VariableTile>(pos);
+
+            MusicManager.Instance.PlaySound(MusicManager.Instance.playerMoveSound, 0.1f);
 
             if (tile.HasAdjacentNeighbor(nextTile))
             {
@@ -73,6 +85,7 @@ public class PlayerScript : MonoBehaviour
                 }
 
                 targetPos = pos + GetDir(nextTile);
+
             }
         }
 
@@ -97,11 +110,12 @@ public class PlayerScript : MonoBehaviour
             tilemap.RefreshTile(pos);
 
             VariableTile tile = tilemap.GetTile<VariableTile>(pos);
-            
+
+            MusicManager.Instance.PlaySound(MusicManager.Instance.playerMoveSound, 0.1f);
 
             if (tile.HasAdjacentNeighbor(nextTile))
             {
-                transform.position = pos + GetDir(nextTile);
+                targetPos = pos + GetDir(nextTile);
             }
             else
             {
@@ -134,7 +148,7 @@ public class PlayerScript : MonoBehaviour
 
                 }
 
-                transform.position = pos + GetDir(nextTile);
+                targetPos = pos + GetDir(nextTile);
             }
         }
         targetPos = transform.position;
@@ -155,9 +169,11 @@ public class PlayerScript : MonoBehaviour
 
             VariableTile tile = tilemap.GetTile<VariableTile>(pos);
 
+            MusicManager.Instance.PlaySound(MusicManager.Instance.playerMoveSound, 0.1f);
+
             if (tile.HasAdjacentNeighbor(nextTile))
             {
-                transform.position = pos + GetOppositeDir(nextTile);
+                targetPos = pos + GetOppositeDir(nextTile);
             }
             else
             {
@@ -190,7 +206,7 @@ public class PlayerScript : MonoBehaviour
 
                 }
 
-                transform.position = pos + GetOppositeDir(nextTile);
+                targetPosition = pos + GetOppositeDir(nextTile);
             }
         }
         targetPos = transform.position;
