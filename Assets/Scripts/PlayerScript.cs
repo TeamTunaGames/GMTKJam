@@ -142,7 +142,7 @@ public class PlayerScript : MonoBehaviour
                 transform.position = pos + GetDir(nextTile);
             }
         }
-        transform.position = transform.position;
+        targetPos = transform.position;
         Vector3Int pos2 = new(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
         tilemap.RefreshTile(pos2);
 
@@ -200,7 +200,7 @@ public class PlayerScript : MonoBehaviour
                 transform.position = pos + GetOppositeDir(nextTile);
             }
         }
-        transform.position = transform.position;
+        targetPos = transform.position;
         Vector3Int pos2 = new((int)transform.position.x, (int)transform.position.y);
         tilemap.RefreshTile(pos2);
 

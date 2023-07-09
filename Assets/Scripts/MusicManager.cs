@@ -17,44 +17,26 @@ public class MusicManager : Singleton<MusicManager>
     {
         base.Awake();
         DontDestroyOnLoad(gameObject);
+        
     }
+
+    private void Start()
+    {
+        LoadNewSong(0);
+    }
+
     private void Update()
     {
-        switch (SceneManager.GetActiveScene().name)
-        {
-            case "TitleScreen":
-            case "Grass1":
-            case "Grass2":
-            case "Grass3":
-            case "Grass4":
-                PlayMusic(musicTracks[0]);
-                break;
-            case "Desert1":
-            case "Desert2":
-            case "Desert3":
-            case "Desert4":
-                PlayMusic(musicTracks[1]);
-                break;
-            case "Snow1":
-            case "Snow2":
-            case "Snow3":
-            case "Snow4":
-                PlayMusic(musicTracks[2]);
-                break;
-            case "Lava1":
-            case "Lava2":
-            case "Lava3":
-            case "Lava4":
-                PlayMusic(musicTracks[3]);
-                break;
-        }
+        
     }
+
     public void PlayMusic(AudioClip song)
     {
-        if (audioSource.isPlaying != song && !musicPaused)
+        if (audioSource.clip != song && !musicPaused)
         {
+            audioSource.clip = song;
             audioSource.Stop();
-            audioSource.PlayOneShot(song);
+            audioSource.Play();
         }
     }
 
@@ -73,5 +55,48 @@ public class MusicManager : Singleton<MusicManager>
     public void PlaySound(AudioClip sound, float volume)
     {
         audioSource.PlayOneShot(sound, volume);
+    }
+
+    public void LoadNewSong(int id)
+    {
+        /*switch (level)
+        {
+            case "TitleScreen":
+            case "Grass1":
+            case "Grass 2":
+            case "Grass 3":
+            case "Grass 4":
+                PlayMusic(musicTracks[0]);
+                break;
+            case "Desert 1":
+            case "Desert 2":
+            case "Desert 3":
+            case "Desert 4":
+                PlayMusic(musicTracks[1]);
+                break;
+            case "Snow 1":
+            case "Snow 2":
+            case "Snow 3":
+            case "Snow 4":
+                PlayMusic(musicTracks[2]);
+                break;
+            case "Lava 1":
+            case "Lava 2":
+            case "Lava 3":
+            case "Lava 4":
+                PlayMusic(musicTracks[3]);
+                break;
+        }
+        */
+        if(id < 4)
+            PlayMusic(musicTracks[0]);
+        else if(id < 8)
+            PlayMusic(musicTracks[1]);
+        else if(id < 12)
+            PlayMusic(musicTracks[2]);
+        else
+        {
+            PlayMusic(musicTracks[3]);
+        }
     }
 }

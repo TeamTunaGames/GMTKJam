@@ -48,4 +48,9 @@ public class MenuCanvas : MonoBehaviour
         GameManager.Instance.levelNumber = 0;
         StartCoroutine(GameManager.Instance.LoadNextLevel());
     }
+
+    public void PlayLavaTheme()
+    {
+        MusicManager.Instance.LoadNewSong(15);
+    }
 }

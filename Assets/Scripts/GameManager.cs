@@ -37,6 +37,7 @@ public class GameManager : Singleton<GameManager>
     private GameObject camera;
     private bool shakingCamera;
     [SerializeField] private Animator transitionAnimator;
+    public Animator TransitionAnimator { set { transitionAnimator = value; } }
 
     protected new void Awake()
     {
@@ -120,7 +121,10 @@ public class GameManager : Singleton<GameManager>
     public void PassTurn()
     {
         if (deadPlayers == players.Count)
+        {
             StartCoroutine(LoadNextLevel());
+            return;
+        }
         if (someoneWon)
             return;
 
@@ -202,6 +206,7 @@ public class GameManager : Singleton<GameManager>
 
         ResetValues();
         SceneManager.LoadScene(levels[levelNumber]);
+        MusicManager.Instance.LoadNewSong(levelNumber);
         levelNumber++;
     }
 
@@ -210,7 +215,9 @@ public class GameManager : Singleton<GameManager>
         transitionAnimator.CrossFade("FadeIn", 0);
         yield return new WaitForSeconds(0.33f);
 
+        ResetValues();
         SceneManager.LoadScene(scene);
+        //MusicManager.Instance.LoadNewSong(scene);
     }
 
     public IEnumerator LoadLevel(int sceneID)
@@ -218,7 +225,9 @@ public class GameManager : Singleton<GameManager>
         transitionAnimator.CrossFade("FadeIn", 0);
         yield return new WaitForSeconds(0.33f);
 
+        ResetValues();
         SceneManager.LoadScene(sceneID);
+        MusicManager.Instance.LoadNewSong(0);
     }
 
     public void PauseGame(bool pause)
