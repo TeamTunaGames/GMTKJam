@@ -98,7 +98,7 @@ public class CanvasScript : Singleton<CanvasScript>
 
     public void OnRestartLevel()
     {
-        GameManager.Instance.RestartLevel();
+        StartCoroutine(GameManager.Instance.RestartLevel());
     }
 
     public void OnPressPause()

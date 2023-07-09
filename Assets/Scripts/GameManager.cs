@@ -64,7 +64,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            RestartLevel();
+            StartCoroutine(RestartLevel());
         }
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
@@ -79,6 +79,11 @@ public class GameManager : Singleton<GameManager>
                 camera = GameObject.Find("Main Camera"); //Replace that with something else
             }
             camera.transform.position = new Vector3(UnityEngine.Random.Range(-0.1f, 0.1f), 1 + UnityEngine.Random.Range(-0.1f, 0.1f), -10);
+        }
+
+        if (transitionAnimator == null)
+        {
+            transitionAnimator = GameObject.Find("TransitionCanvas").transform.GetChild(0).GetComponent<Animator>();
         }
     }
 
