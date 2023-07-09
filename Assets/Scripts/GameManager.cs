@@ -187,6 +187,18 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(scene);
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    public IEnumerator CameraShake()
+    {
+        shakingCamera = true;
+        yield return new WaitForSeconds(0.3f);
+        shakingCamera = false;
+        camera.transform.position = new Vector3(0, 1, -10);
+    }
+=======
+>>>>>>> gargantus4
     public void LoadLevel(int sceneID)
     {
         SceneManager.LoadScene(sceneID);
@@ -220,4 +232,8 @@ public class GameManager : Singleton<GameManager>
     }
 
 
+<<<<<<< HEAD
+=======
+>>>>>>> fruityNew
+>>>>>>> gargantus4
 }

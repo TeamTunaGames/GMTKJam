@@ -10,20 +10,45 @@ public class PlayerScript : MonoBehaviour
     public PlayerColor Color { get { return color; } }
     [SerializeField] private TileCheck nextTile = TileCheck.Right;
     public TileCheck NextTile { get { return nextTile; } set { nextTile = value; } }
+<<<<<<< HEAD
     public Vector3 targetPos;
     private Vector3 vel = Vector3.zero;
+=======
+<<<<<<< HEAD
+    private Vector3 targetPosition;
+=======
+    public Vector3 targetPos;
+    private Vector3 vel = Vector3.zero;
+>>>>>>> fruityNew
+>>>>>>> gargantus4
 
     private const float moveTimer = .25f;
 
     private void Start()
     {
         GameManager.Instance.SetPlayer(this);
+<<<<<<< HEAD
         targetPos = transform.position;
+=======
+<<<<<<< HEAD
+        targetPosition = transform.position;
+=======
+        targetPos = transform.position;
+>>>>>>> fruityNew
+>>>>>>> gargantus4
     }
 
     private void Update()
     {
+<<<<<<< HEAD
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, .05f);
+=======
+<<<<<<< HEAD
+        transform.position = Vector3.Lerp(transform.position, targetPosition, 0.5f);
+=======
+        transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, .05f);
+>>>>>>> fruityNew
+>>>>>>> gargantus4
     }
 
     public IEnumerator Timer(int tileMoves)
@@ -39,7 +64,15 @@ public class PlayerScript : MonoBehaviour
 
             if (tile.HasAdjacentNeighbor(nextTile))
             {
+<<<<<<< HEAD
                 targetPos = pos + GetDir(nextTile);
+=======
+<<<<<<< HEAD
+                targetPosition = pos + GetDir(nextTile);
+=======
+                targetPos = pos + GetDir(nextTile);
+>>>>>>> fruityNew
+>>>>>>> gargantus4
             }
             else
             {
@@ -72,7 +105,15 @@ public class PlayerScript : MonoBehaviour
 
                 }
 
+<<<<<<< HEAD
                 targetPos = pos + GetDir(nextTile);
+=======
+<<<<<<< HEAD
+                targetPosition = pos + GetDir(nextTile);
+=======
+                targetPos = pos + GetDir(nextTile);
+>>>>>>> fruityNew
+>>>>>>> gargantus4
             }
         }
 

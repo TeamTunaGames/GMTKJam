@@ -1091,6 +1091,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> gargantus4
     - target: {fileID: 569742780174556608, guid: 2dffb9a694ee58244aee74543dcfa35a, type: 3}
       propertyPath: diceValue
       value: 4
@@ -1223,6 +1228,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+>>>>>>> fruityNew
+>>>>>>> gargantus4
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dffb9a694ee58244aee74543dcfa35a, type: 3}
 --- !u!1 &1749911310
