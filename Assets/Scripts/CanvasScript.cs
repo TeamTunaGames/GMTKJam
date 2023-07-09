@@ -113,7 +113,7 @@ public class CanvasScript : Singleton<CanvasScript>
 
     public void OnPressMenu()
     {
-        GameManager.Instance.LoadLevel(0);
+        StartCoroutine(GameManager.Instance.LoadLevel(0));
         GameManager.Instance.PauseGame(false);
     }
 }

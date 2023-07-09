@@ -148,3 +148,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4210c4b5233a3454aaf882198439d6c5, type: 3}
   audioSource: {fileID: 2951649113132680721}
   playerMoveSound: {fileID: 8300000, guid: 10199176be6bda64c8ba63fa1e7ce94d, type: 3}
+  playerDeathSound: {fileID: 8300000, guid: 42a8530323178dd49b9b1ec2840e440f, type: 3}
+  playerWinSound: {fileID: 8300000, guid: 09cec280b3d44f742a425fe593cffa99, type: 3}

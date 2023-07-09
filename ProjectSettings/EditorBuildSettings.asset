@@ -9,14 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
     guid: 1c7c72882fa0141468d5b547aa2e1291
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: 541f3b48ac6167c43aff322a5a459126
-  - enabled: 1
-    path: Assets/Scenes/Level2.unity
-    guid: 61d6ebabeb1cc6e47a40782bc0d9b693
-  - enabled: 1
-    path: Assets/Scenes/Test Level 1.unity
-    guid: 163305105c27a1b4d8751dac4a498b85
+    path: Assets/Scenes/Grass/Grass1.unity
+    guid: b7f2d651846160d4d839bca1f530d76d
   - enabled: 1
     path: Assets/Scenes/Grass/Grass 2.unity
     guid: ffdf16cfc4e107641a8f1e3cee70d113
@@ -26,7 +20,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Grass/Grass 4.unity
     guid: 9336dd3429f42194fb5757a79a482282
-  - enabled: 1
-    path: Assets/Scenes/Grass/Grass1.unity
-    guid: b7f2d651846160d4d839bca1f530d76d
   m_configObjects: {}

@@ -7,6 +7,7 @@ public class MenuCanvas : MonoBehaviour
 {
     [SerializeField] GameObject mainTitleScreen;
     [SerializeField] GameObject levelSelectScreen;
+    [SerializeField] private Animator transitionAnimator;
 
     private void Start()
     {
@@ -16,8 +17,11 @@ public class MenuCanvas : MonoBehaviour
             CanvasScript.Instance.gameObject.SetActive(false);
         }
     }
-    public void LoadScene(string sceneName)
+    public IEnumerator LoadScene(string sceneName)
     {
+        transitionAnimator.CrossFade("FadeIn", 0);
+        yield return new WaitForSeconds(0.33f);
+
         SceneManager.LoadScene(sceneName);
 
         if (GameManager.Instance != null && CanvasScript.Instance != null)
@@ -42,6 +46,6 @@ public class MenuCanvas : MonoBehaviour
     public void StartGame()
     {
         GameManager.Instance.levelNumber = 0;
-        GameManager.Instance.LoadNextLevel();
+        StartCoroutine(GameManager.Instance.LoadNextLevel());
     }
 }

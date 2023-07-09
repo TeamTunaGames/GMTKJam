@@ -36,6 +36,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject dummyPrefab;
     private GameObject camera;
     private bool shakingCamera;
+    [SerializeField] private Animator transitionAnimator;
 
     protected new void Awake()
     {
@@ -54,6 +55,9 @@ public class GameManager : Singleton<GameManager>
                 dataFromTiles.Add(tile, tileData);
             }
         }
+
+        transitionAnimator = GameObject.Find("TransitionCanvas").transform.GetChild(0).GetComponent<Animator>();
+        transitionAnimator.CrossFade("FadeOut", 0);
     }
 
     private void Update()
@@ -74,7 +78,7 @@ public class GameManager : Singleton<GameManager>
             {
                 camera = GameObject.Find("Main Camera"); //Replace that with something else
             }
-            camera.transform.position = new Vector3(Random.Range(-0.1f, 0.1f), 1 + Random.Range(-0.1f, 0.1f), -10);
+            camera.transform.position = new Vector3(UnityEngine.Random.Range(-0.1f, 0.1f), 1 + UnityEngine.Random.Range(-0.1f, 0.1f), -10);
         }
     }
 
@@ -93,8 +97,11 @@ public class GameManager : Singleton<GameManager>
         PassTurn();
     }
 
-    public void RestartLevel()
+    public IEnumerator RestartLevel()
     {
+        transitionAnimator.CrossFade("FadeIn", 0);
+        yield return new WaitForSeconds(0.33f);
+
         ResetValues();
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -113,7 +120,7 @@ public class GameManager : Singleton<GameManager>
     public void PassTurn()
     {
         if (deadPlayers == players.Count)
-            LoadNextLevel();
+            StartCoroutine(LoadNextLevel());
         if (someoneWon)
             return;
 
@@ -187,29 +194,30 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void LoadNextLevel()
+    public IEnumerator LoadNextLevel()
     {
+
+        transitionAnimator.CrossFade("FadeIn", 0);
+        yield return new WaitForSeconds(0.33f);
+
         ResetValues();
         SceneManager.LoadScene(levels[levelNumber]);
         levelNumber++;
     }
 
-    public void LoadLevel(SceneReference scene)
+    public IEnumerator LoadLevel(SceneReference scene)
     {
+        transitionAnimator.CrossFade("FadeIn", 0);
+        yield return new WaitForSeconds(0.33f);
+
         SceneManager.LoadScene(scene);
     }
 
-<<<<<<< HEAD
-    public IEnumerator CameraShake()
+    public IEnumerator LoadLevel(int sceneID)
     {
-        shakingCamera = true;
-        yield return new WaitForSeconds(0.3f);
-        shakingCamera = false;
-        camera.transform.position = new Vector3(0, 1, -10);
-    }
-=======
-    public void LoadLevel(int sceneID)
-    {
+        transitionAnimator.CrossFade("FadeIn", 0);
+        yield return new WaitForSeconds(0.33f);
+
         SceneManager.LoadScene(sceneID);
     }
 
@@ -241,5 +249,11 @@ public class GameManager : Singleton<GameManager>
     }
 
 
->>>>>>> fruityNew
+    public IEnumerator CameraShake()
+    {
+        shakingCamera = true;
+        yield return new WaitForSeconds(0.3f);
+        shakingCamera = false;
+        camera.transform.position = new Vector3(0, 1, -10);
+    }
 }

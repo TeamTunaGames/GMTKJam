@@ -24,7 +24,28 @@ public class MusicManager : Singleton<MusicManager>
         {
             case "TitleScreen":
             case "Grass1":
+            case "Grass2":
+            case "Grass3":
+            case "Grass4":
                 PlayMusic(musicTracks[0]);
+                break;
+            case "Desert1":
+            case "Desert2":
+            case "Desert3":
+            case "Desert4":
+                PlayMusic(musicTracks[1]);
+                break;
+            case "Snow1":
+            case "Snow2":
+            case "Snow3":
+            case "Snow4":
+                PlayMusic(musicTracks[2]);
+                break;
+            case "Lava1":
+            case "Lava2":
+            case "Lava3":
+            case "Lava4":
+                PlayMusic(musicTracks[3]);
                 break;
         }
     }

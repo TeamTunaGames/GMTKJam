@@ -12,32 +12,20 @@ public class PlayerScript : MonoBehaviour
     public PlayerColor Color { get { return color; } }
     [SerializeField] private TileCheck nextTile = TileCheck.Right;
     public TileCheck NextTile { get { return nextTile; } set { nextTile = value; } }
-<<<<<<< HEAD
-    private Vector3 targetPosition;
-=======
     public Vector3 targetPos;
     private Vector3 vel = Vector3.zero;
->>>>>>> fruityNew
 
     private const float moveTimer = .25f;
 
     private void Start()
     {
         GameManager.Instance.SetPlayer(this);
-<<<<<<< HEAD
-        targetPosition = transform.position;
-=======
         targetPos = transform.position;
->>>>>>> fruityNew
     }
 
     private void Update()
     {
-<<<<<<< HEAD
-        transform.position = Vector3.Lerp(transform.position, targetPosition, 0.5f);
-=======
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, .05f);
->>>>>>> fruityNew
     }
 
     public IEnumerator Timer(int tileMoves)
@@ -55,11 +43,7 @@ public class PlayerScript : MonoBehaviour
 
             if (tile.HasAdjacentNeighbor(nextTile))
             {
-<<<<<<< HEAD
-                targetPosition = pos + GetDir(nextTile);
-=======
                 targetPos = pos + GetDir(nextTile);
->>>>>>> fruityNew
             }
             else
             {
@@ -92,11 +76,7 @@ public class PlayerScript : MonoBehaviour
 
                 }
 
-<<<<<<< HEAD
-                targetPosition = pos + GetDir(nextTile);
-=======
-                targetPos = pos + GetDir(nextTile);
->>>>>>> fruityNew
+                transform.position = pos + GetDir(nextTile);
             }
         }
 
@@ -126,7 +106,7 @@ public class PlayerScript : MonoBehaviour
 
             if (tile.HasAdjacentNeighbor(nextTile))
             {
-                targetPosition = pos + GetDir(nextTile);
+                targetPos = pos + GetDir(nextTile);
             }
             else
             {
@@ -159,7 +139,7 @@ public class PlayerScript : MonoBehaviour
 
                 }
 
-                targetPosition = pos + GetDir(nextTile);
+                targetPos = pos + GetDir(nextTile);
             }
         }
         targetPos = transform.position;
@@ -184,7 +164,7 @@ public class PlayerScript : MonoBehaviour
 
             if (tile.HasAdjacentNeighbor(nextTile))
             {
-                targetPosition = pos + GetOppositeDir(nextTile);
+                targetPos = pos + GetOppositeDir(nextTile);
             }
             else
             {
@@ -217,7 +197,7 @@ public class PlayerScript : MonoBehaviour
 
                 }
 
-                targetPosition = pos + GetOppositeDir(nextTile);
+                targetPos = pos + GetOppositeDir(nextTile);
             }
         }
         targetPos = transform.position;
