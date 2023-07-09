@@ -2393,41 +2393,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-<<<<<<< HEAD
 --- !u!1 &3552841802844834689
 GameObject:
-=======
-<<<<<<< HEAD
---- !u!95 &2016929438
-Animator:
-  serializedVersion: 5
-=======
---- !u!1 &3552841802844834689
-GameObject:
->>>>>>> fruityNew
->>>>>>> gargantus4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-  m_GameObject: {fileID: 1237001458923221220}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d7e06ec6a00485439ec62328e08e53b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-=======
->>>>>>> gargantus4
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4540811357159785894}
@@ -2640,10 +2611,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-<<<<<<< HEAD
-=======
->>>>>>> fruityNew
->>>>>>> gargantus4
 --- !u!1 &7418872420999037887
 GameObject:
   m_ObjectHideFlags: 0
