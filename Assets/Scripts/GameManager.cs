@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    public Action<bool> OnPause;
+
     public int gameTurn;
     public int playerTurn;
     public bool gameStarted;
+    public bool gamePaused = false;
     [SerializeField] private GameObject playerGroup;
     public GameObject PlayerGroup { set { playerGroup = value; } }
     [SerializeField] public CanvasScript canvas;
@@ -182,4 +186,38 @@ public class GameManager : Singleton<GameManager>
     {
         SceneManager.LoadScene(scene);
     }
+
+    public void LoadLevel(int sceneID)
+    {
+        SceneManager.LoadScene(sceneID);
+    }
+
+    public void PauseGame(bool pause)
+    {
+        if (pause)
+        {
+            if (!gamePaused)
+            {
+                Time.timeScale = 0;
+                if(MusicManager.Instance != null)
+                    MusicManager.Instance.PauseMusic();
+                gamePaused = true;
+                OnPause?.Invoke(gamePaused);
+            }
+        }
+        else
+        {
+            if (gamePaused)
+            {
+                Time.timeScale = 1;
+                if (MusicManager.Instance != null)
+                    MusicManager.Instance.UnpauseMusic();
+                gamePaused = false;
+                OnPause?.Invoke(gamePaused);
+            }
+        }
+        
+    }
+
+
 }

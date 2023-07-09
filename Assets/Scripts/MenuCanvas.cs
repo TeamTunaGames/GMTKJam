@@ -38,4 +38,10 @@ public class MenuCanvas : MonoBehaviour
         mainTitleScreen.SetActive(false);
         levelSelectScreen.SetActive(true);
     }
+
+    public void StartGame()
+    {
+        GameManager.Instance.levelNumber = 0;
+        GameManager.Instance.LoadNextLevel();
+    }
 }

@@ -11,9 +11,12 @@ public class CanvasScript : Singleton<CanvasScript>
     [SerializeField] GameObject diceGroup;
     public Sprite[] diceSprites;
 
+    [SerializeField] private GameObject pauseMenu;
+
     private void Start()
     {
         GameManager.Instance.canvas = this;
+        pauseMenu.SetActive(false);
 
         //Get all available dices
         dices = new List<GameObject>();
@@ -45,9 +48,24 @@ public class CanvasScript : Singleton<CanvasScript>
         SortDices(null);
     }
 
+    private void OnEnable()
+    {
+        GameManager.Instance.OnPause += OnGamePause;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnPause -= OnGamePause;
+    }
+
     private void OnGUI()
     {
         SortDices(null);
+    }
+
+    private void OnGamePause(bool pause)
+    {
+        pauseMenu.SetActive(pause);
     }
 
     public void SortDices(GameObject heldDice)
@@ -81,5 +99,21 @@ public class CanvasScript : Singleton<CanvasScript>
     public void OnRestartLevel()
     {
         GameManager.Instance.RestartLevel();
+    }
+
+    public void OnPressPause()
+    {
+        GameManager.Instance.PauseGame(true);
+    }
+
+    public void OnPressResume()
+    {
+        GameManager.Instance.PauseGame(false);
+    }
+
+    public void OnPressMenu()
+    {
+        GameManager.Instance.LoadLevel(0);
+        GameManager.Instance.PauseGame(false);
     }
 }
