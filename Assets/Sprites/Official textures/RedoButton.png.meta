@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b29640022681be84ca0d3c097d69682c
+guid: 2bdc2b0ed0ca30142aa1d88072bdc0d5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,128 +103,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: StageSelect-Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 55
-        width: 33
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b0e1f41ce7c8f14c962371bf9715ca9
-      internalID: 935728047
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: StageSelect-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 56
-        y: 55
-        width: 31
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 333e14a1acc28d34194e39738fb7dca5
-      internalID: 595509744
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: StageSelect-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 55
-        width: 33
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b2c9da15f4b2174294ba248a1b80e7d
-      internalID: 1198927168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: StageSelect-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 7
-        width: 33
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63b339ed9bc9470419d4fc311cbf2de1
-      internalID: 606937091
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: StageSelect-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 55
-        y: 7
-        width: 33
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 81cc5b6e064b0d840a053e3e233a4467
-      internalID: -1852440374
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 91f5be36c83532e40adb95458196d401
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      StageSelect-Sheet_3: 606937091
-      StageSelect-Sheet_2: 1198927168
-      StageSelect-Sheet_4: -1852440374
-      StageSelect-Sheet_1: 595509744
-      StageSelect-Sheet_0: 935728047
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
