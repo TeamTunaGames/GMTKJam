@@ -561,6 +561,7 @@ MonoBehaviour:
   diceValue: 5
   diceImage: {fileID: 105318408}
   targetPosition: 0
+  diceAnimator: {fileID: 0}
 --- !u!114 &105318408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,6 +870,7 @@ MonoBehaviour:
   diceValue: 3
   diceImage: {fileID: 268394596}
   targetPosition: 0
+  diceAnimator: {fileID: 0}
 --- !u!114 &268394596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -914,14 +916,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7737220535059796016, guid: bfc64c4da41d26f42b5c1a7ff49557ab, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 7737220535059796016, guid: bfc64c4da41d26f42b5c1a7ff49557ab, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.37
-      objectReference: {fileID: 0}
     - target: {fileID: 7737220535189523954, guid: bfc64c4da41d26f42b5c1a7ff49557ab, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -969,22 +963,6 @@ PrefabInstance:
     - target: {fileID: 7737220535189523957, guid: bfc64c4da41d26f42b5c1a7ff49557ab, type: 3}
       propertyPath: m_Name
       value: PlayerGroup
-      objectReference: {fileID: 0}
-    - target: {fileID: 7737220535307438439, guid: bfc64c4da41d26f42b5c1a7ff49557ab, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 7737220535307438439, guid: bfc64c4da41d26f42b5c1a7ff49557ab, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 7737220535383653678, guid: bfc64c4da41d26f42b5c1a7ff49557ab, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7737220535450632239, guid: bfc64c4da41d26f42b5c1a7ff49557ab, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc64c4da41d26f42b5c1a7ff49557ab, type: 3}
@@ -1172,6 +1150,7 @@ MonoBehaviour:
   diceValue: 1
   diceImage: {fileID: 402806805}
   targetPosition: 0
+  diceAnimator: {fileID: 0}
 --- !u!114 &402806809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1338,11 +1317,7 @@ MonoBehaviour:
   - {fileID: -1326216187, guid: 464202332e2fb1842ac933b5978a4885, type: 3}
   - {fileID: -1123984264, guid: 464202332e2fb1842ac933b5978a4885, type: 3}
   - {fileID: -118766265, guid: 464202332e2fb1842ac933b5978a4885, type: 3}
-  gameUIGroup: {fileID: 1794286801}
   pauseMenu: {fileID: 519940212}
-  paused: 0
-  winText: {fileID: 666261843}
-  transitionAnimator: {fileID: 503089014}
 --- !u!114 &435333875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2226,6 +2201,7 @@ MonoBehaviour:
   diceValue: 3
   diceImage: {fileID: 1045302546}
   targetPosition: 0
+  diceAnimator: {fileID: 0}
 --- !u!114 &1045302546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2373,7 +2349,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1156985347}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.08, z: -3.2999773}
+  m_LocalPosition: {x: 0, y: 5, z: -3.2999773}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2485,6 +2461,7 @@ MonoBehaviour:
   diceValue: 6
   diceImage: {fileID: 1219445699}
   targetPosition: 0
+  diceAnimator: {fileID: 0}
 --- !u!114 &1219445699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2774,6 +2751,7 @@ MonoBehaviour:
   diceValue: 2
   diceImage: {fileID: 1324075134}
   targetPosition: 0
+  diceAnimator: {fileID: 0}
 --- !u!114 &1324075134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4252,7 +4230,7 @@ MonoBehaviour:
   gameTurn: 0
   playerTurn: 0
   gameStarted: 0
-  gameEnded: 0
+  gamePaused: 0
   playerGroup: {fileID: 294116927}
   canvas: {fileID: 435333874}
   playerPrefab: {fileID: 0}
@@ -4266,6 +4244,11 @@ MonoBehaviour:
   pink: {r: 0, g: 0, b: 0, a: 0}
   map: {fileID: 1390451954}
   tileDatas: []
+  levels: []
+  levelNumber: 0
+  deadPlayers: 0
+  dummyPrefab: {fileID: 0}
+  transitionAnimator: {fileID: 0}
 --- !u!4 &1655033786
 Transform:
   m_ObjectHideFlags: 0
@@ -4561,6 +4544,7 @@ MonoBehaviour:
   diceValue: 2
   diceImage: {fileID: 1828289147}
   targetPosition: 0
+  diceAnimator: {fileID: 0}
 --- !u!114 &1828289147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4700,6 +4684,7 @@ MonoBehaviour:
   diceValue: 3
   diceImage: {fileID: 1872929315}
   targetPosition: 0
+  diceAnimator: {fileID: 0}
 --- !u!114 &1872929315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5295,6 +5280,7 @@ MonoBehaviour:
   diceValue: 3
   diceImage: {fileID: 2145121920}
   targetPosition: 0
+  diceAnimator: {fileID: 0}
 --- !u!114 &2145121920
 MonoBehaviour:
   m_ObjectHideFlags: 0
