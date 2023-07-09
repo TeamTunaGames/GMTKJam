@@ -26,7 +26,12 @@ public class DeathTile : VariableTile
     {
         if (neutral || playerScript.Color == playerColor)
         {
+            GameObject dummy = Instantiate(GameManager.Instance.dummyPrefab, playerScript.gameObject.transform.GetChild(0).transform.position, transform.rotation);
+            dummy.GetComponent<DummyPlayerCode>().renderer.color = playerScript.spriteColor;
+
             playerScript.gameObject.SetActive(false);
+
+            MusicManager.Instance.PlaySound(MusicManager.Instance.playerDeathSound, 0.25f);
             GameManager.Instance.deadPlayers++;
         }
     }

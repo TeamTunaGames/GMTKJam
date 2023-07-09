@@ -69,3 +69,5 @@ MonoBehaviour:
     scenePath: Assets/Scenes/Grass/Grass 4.unity
   levelNumber: 0
   deadPlayers: 0
+  dummyPrefab: {fileID: 3707916440424651596, guid: f5822571cc05acb4ea509c11438739ff, type: 3}
+  camera: {fileID: 0}

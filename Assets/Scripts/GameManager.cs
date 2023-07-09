@@ -29,6 +29,10 @@ public class GameManager : Singleton<GameManager>
     public int levelNumber = 0;
     public int deadPlayers = 0;
 
+    public GameObject dummyPrefab;
+    private GameObject camera;
+    private bool shakingCamera;
+
     protected new void Awake()
     {
         base.Awake();
@@ -46,15 +50,10 @@ public class GameManager : Singleton<GameManager>
                 dataFromTiles.Add(tile, tileData);
             }
         }
-
-        
-        
     }
 
     private void Update()
     {
-        
-        
         if (Input.GetKeyDown(KeyCode.R))
         {
             RestartLevel();
@@ -63,6 +62,15 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             StartGame();
+        }
+
+        if (shakingCamera)
+        {
+            if (camera == null)
+            {
+                camera = GameObject.Find("Main Camera"); //Replace that with something else
+            }
+            camera.transform.position = new Vector3(Random.Range(-0.1f, 0.1f), 1 + Random.Range(-0.1f, 0.1f), -10);
         }
     }
 
@@ -107,7 +115,10 @@ public class GameManager : Singleton<GameManager>
 
         PlayerScript currentPlayer = players[playerTurn];
         if (gameTurn < diceValues.Count)
+        {
+            CanvasScript.Instance.dices[gameTurn].GetComponent<DiceScript>().diceAnimator.CrossFade("DiceAnimation", 0);
             StartCoroutine(currentPlayer.Timer(diceValues[gameTurn]));
+        }
         else
             TickGameOver();
 
@@ -151,6 +162,7 @@ public class GameManager : Singleton<GameManager>
 
     public void TickGameOver()
     {
+        StartCoroutine(CameraShake());
         someoneWon = true;
     }
 
@@ -181,5 +193,13 @@ public class GameManager : Singleton<GameManager>
     public void LoadLevel(SceneReference scene)
     {
         SceneManager.LoadScene(scene);
+    }
+
+    public IEnumerator CameraShake()
+    {
+        shakingCamera = true;
+        yield return new WaitForSeconds(0.3f);
+        shakingCamera = false;
+        camera.transform.position = new Vector3(0, 1, -10);
     }
 }
