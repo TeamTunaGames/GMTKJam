@@ -7,23 +7,23 @@ public class PlayerScript : MonoBehaviour
 {
     [SerializeField] private string playerName;
     [SerializeField] private PlayerColor color;
-    public Color spriteColor;
-    public ParticleSystem confetti;
     public PlayerColor Color { get { return color; } }
     [SerializeField] private TileCheck nextTile = TileCheck.Right;
     public TileCheck NextTile { get { return nextTile; } set { nextTile = value; } }
-    private Vector3 targetPosition;
+    public Vector3 targetPos;
+    private Vector3 vel = Vector3.zero;
 
+    private const float moveTimer = .25f;
 
     private void Start()
     {
         GameManager.Instance.SetPlayer(this);
-        targetPosition = transform.position;
+        targetPos = transform.position;
     }
 
     private void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, targetPosition, 0.5f);
+        transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, .05f);
     }
 
     public IEnumerator Timer(int tileMoves)
@@ -31,17 +31,15 @@ public class PlayerScript : MonoBehaviour
         Tilemap tilemap = GameManager.Instance.Map;
         for (int i = 1; i <= tileMoves; i++)
         {
-            yield return new WaitForSeconds(0.25f);
-            Vector3Int pos = new((int)transform.position.x, (int)transform.position.y);
+            yield return new WaitForSeconds(moveTimer);
+            Vector3Int pos = new(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
             tilemap.RefreshTile(pos);
 
             VariableTile tile = tilemap.GetTile<VariableTile>(pos);
 
-            MusicManager.Instance.PlaySound(MusicManager.Instance.playerMoveSound, 0.1f);
-
             if (tile.HasAdjacentNeighbor(nextTile))
             {
-                targetPosition = pos + GetDir(nextTile);
+                targetPos = pos + GetDir(nextTile);
             }
             else
             {
@@ -74,19 +72,19 @@ public class PlayerScript : MonoBehaviour
 
                 }
 
-                targetPosition = pos + GetDir(nextTile);
+                targetPos = pos + GetDir(nextTile);
             }
         }
 
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(moveTimer);
 
-        Vector3Int pos2 = new((int)transform.position.x, (int)transform.position.y);
+        Vector3Int pos2 = new(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
         tilemap.RefreshTile(pos2);
 
         VariableTile tile2 = tilemap.GetTile<VariableTile>(pos2);
         tile2.Landed(this);
 
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(moveTimer);
         GameManager.Instance.PassTurn();
     }
 
@@ -95,16 +93,15 @@ public class PlayerScript : MonoBehaviour
         Tilemap tilemap = GameManager.Instance.Map;
         for(int i = 0; i < spaces; i++)
         {
-            Vector3Int pos = new((int)transform.position.x, (int)transform.position.y);
+            Vector3Int pos = new(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
             tilemap.RefreshTile(pos);
 
             VariableTile tile = tilemap.GetTile<VariableTile>(pos);
-
-            MusicManager.Instance.PlaySound(MusicManager.Instance.playerMoveSound, 0.1f);
+            
 
             if (tile.HasAdjacentNeighbor(nextTile))
             {
-                targetPosition = pos + GetDir(nextTile);
+                transform.position = pos + GetDir(nextTile);
             }
             else
             {
@@ -137,10 +134,11 @@ public class PlayerScript : MonoBehaviour
 
                 }
 
-                targetPosition = pos + GetDir(nextTile);
+                transform.position = pos + GetDir(nextTile);
             }
         }
-        Vector3Int pos2 = new((int)transform.position.x, (int)transform.position.y);
+        targetPos = transform.position;
+        Vector3Int pos2 = new(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
         tilemap.RefreshTile(pos2);
 
         VariableTile tile2 = tilemap.GetTile<VariableTile>(pos2);
@@ -157,11 +155,9 @@ public class PlayerScript : MonoBehaviour
 
             VariableTile tile = tilemap.GetTile<VariableTile>(pos);
 
-            MusicManager.Instance.PlaySound(MusicManager.Instance.playerMoveSound, 0.1f);
-
             if (tile.HasAdjacentNeighbor(nextTile))
             {
-                targetPosition = pos + GetOppositeDir(nextTile);
+                transform.position = pos + GetOppositeDir(nextTile);
             }
             else
             {
@@ -194,9 +190,10 @@ public class PlayerScript : MonoBehaviour
 
                 }
 
-                targetPosition = pos + GetOppositeDir(nextTile);
+                transform.position = pos + GetOppositeDir(nextTile);
             }
         }
+        targetPos = transform.position;
         Vector3Int pos2 = new((int)transform.position.x, (int)transform.position.y);
         tilemap.RefreshTile(pos2);
 

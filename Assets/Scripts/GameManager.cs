@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    public Action<bool> OnPause;
+
     public int gameTurn;
     public int playerTurn;
     public bool gameStarted;
+    public bool gamePaused = false;
     [SerializeField] private GameObject playerGroup;
     public GameObject PlayerGroup { set { playerGroup = value; } }
     [SerializeField] public CanvasScript canvas;
@@ -29,10 +33,6 @@ public class GameManager : Singleton<GameManager>
     public int levelNumber = 0;
     public int deadPlayers = 0;
 
-    public GameObject dummyPrefab;
-    private GameObject camera;
-    private bool shakingCamera;
-
     protected new void Awake()
     {
         base.Awake();
@@ -50,10 +50,15 @@ public class GameManager : Singleton<GameManager>
                 dataFromTiles.Add(tile, tileData);
             }
         }
+
+        
+        
     }
 
     private void Update()
     {
+        
+        
         if (Input.GetKeyDown(KeyCode.R))
         {
             RestartLevel();
@@ -62,15 +67,6 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             StartGame();
-        }
-
-        if (shakingCamera)
-        {
-            if (camera == null)
-            {
-                camera = GameObject.Find("Main Camera"); //Replace that with something else
-            }
-            camera.transform.position = new Vector3(Random.Range(-0.1f, 0.1f), 1 + Random.Range(-0.1f, 0.1f), -10);
         }
     }
 
@@ -115,10 +111,7 @@ public class GameManager : Singleton<GameManager>
 
         PlayerScript currentPlayer = players[playerTurn];
         if (gameTurn < diceValues.Count)
-        {
-            CanvasScript.Instance.dices[gameTurn].GetComponent<DiceScript>().diceAnimator.CrossFade("DiceAnimation", 0);
             StartCoroutine(currentPlayer.Timer(diceValues[gameTurn]));
-        }
         else
             TickGameOver();
 
@@ -162,7 +155,6 @@ public class GameManager : Singleton<GameManager>
 
     public void TickGameOver()
     {
-        StartCoroutine(CameraShake());
         someoneWon = true;
     }
 
@@ -195,11 +187,37 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(scene);
     }
 
-    public IEnumerator CameraShake()
+    public void LoadLevel(int sceneID)
     {
-        shakingCamera = true;
-        yield return new WaitForSeconds(0.3f);
-        shakingCamera = false;
-        camera.transform.position = new Vector3(0, 1, -10);
+        SceneManager.LoadScene(sceneID);
     }
+
+    public void PauseGame(bool pause)
+    {
+        if (pause)
+        {
+            if (!gamePaused)
+            {
+                Time.timeScale = 0;
+                if(MusicManager.Instance != null)
+                    MusicManager.Instance.PauseMusic();
+                gamePaused = true;
+                OnPause?.Invoke(gamePaused);
+            }
+        }
+        else
+        {
+            if (gamePaused)
+            {
+                Time.timeScale = 1;
+                if (MusicManager.Instance != null)
+                    MusicManager.Instance.UnpauseMusic();
+                gamePaused = false;
+                OnPause?.Invoke(gamePaused);
+            }
+        }
+        
+    }
+
+
 }
