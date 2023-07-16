@@ -21,6 +21,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Grass/Grass 4.unity
     guid: 9336dd3429f42194fb5757a79a482282
   - enabled: 1
+    path: Assets/Scenes/Grass/Grass0.1.unity
+    guid: d78ae5820be49714999c50c24877ff14
+  - enabled: 1
+    path: Assets/Scenes/Grass/Grass0.2.unity
+    guid: 90282d2ff3e2eef48a1b2ef9b0a4313e
+  - enabled: 1
+    path: Assets/Scenes/Grass/Grass0.unity
+    guid: 289ec2cd5ae09c54aa2dc6b87a665036
+  - enabled: 1
+    path: Assets/Scenes/Desert/Desert 0.unity
+    guid: 26c4f54611d03174b8ad155a3ce2ca78
+  - enabled: 1
     path: Assets/Scenes/Desert/Desert 1.unity
     guid: 29b293775e610434083789e57694958f
   - enabled: 1

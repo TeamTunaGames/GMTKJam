@@ -88,11 +88,11 @@ public class MusicManager : Singleton<MusicManager>
                 break;
         }
         */
-        if(id < 4)
+        if(id < 7)
             PlayMusic(musicTracks[0]);
-        else if(id < 8)
-            PlayMusic(musicTracks[1]);
         else if(id < 12)
+            PlayMusic(musicTracks[1]);
+        else if(id < 16)
             PlayMusic(musicTracks[2]);
         else
         {

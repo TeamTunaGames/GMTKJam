@@ -210,9 +210,20 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(0.33f);
 
         ResetValues();
-        SceneManager.LoadScene(levels[levelNumber]);
-        MusicManager.Instance.LoadNewSong(levelNumber);
-        levelNumber++;
+        if(levelNumber != levels.Count)
+        {
+            SceneManager.LoadScene(levels[levelNumber]);
+            MusicManager.Instance.LoadNewSong(levelNumber);
+            levelNumber++;
+        }
+            
+        else
+        {
+            SceneManager.LoadScene(0);
+            MusicManager.Instance.LoadNewSong(0);
+            
+        }
+        
     }
 
     public IEnumerator LoadLevel(SceneReference scene)
@@ -233,6 +244,17 @@ public class GameManager : Singleton<GameManager>
         ResetValues();
         SceneManager.LoadScene(sceneID);
         MusicManager.Instance.LoadNewSong(0);
+    }
+
+    public IEnumerator LoadLevelOnNumber(int sceneID)
+    {
+        transitionAnimator.CrossFade("FadeIn", 0);
+        yield return new WaitForSeconds(0.33f);
+
+        ResetValues();
+        levelNumber = sceneID + 1;
+        SceneManager.LoadScene(levels[sceneID]);
+        MusicManager.Instance.LoadNewSong(sceneID);
     }
 
     public void PauseGame(bool pause)

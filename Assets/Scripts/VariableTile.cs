@@ -88,7 +88,7 @@ public class VariableTile : Tile
 
     public virtual void Landed(PlayerScript playerScript)
     {
-
+        
     }
 }
 

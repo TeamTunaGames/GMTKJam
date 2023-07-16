@@ -51,6 +51,6 @@ public class MenuCanvas : MonoBehaviour
 
     public void PlayLavaTheme()
     {
-        MusicManager.Instance.LoadNewSong(15);
+        MusicManager.Instance.LoadNewSong(16);
     }
 }
